@@ -1,14 +1,32 @@
 import './App.css'
-import ListOfGift from './components/ListOfGifts'
-import { useState } from 'react'
+import { Link, Route } from 'wouter'
+
+import Home from './pages/Home'
+import Search from './pages/Search'
+import Details from './pages/Details'
+import { GifsContextProvider } from './context/GifsContext'
 
 function App () {
-  const [keyword, setKeyword] = useState('')
   return (
     <div className='App'>
       <section className='App-content'>
-        <button onClick={() => setKeyword('Burgos')}>Change</button>
-        <ListOfGift keyword={keyword} />
+        <Link to='/'>
+          <h1>Gifbrowser</h1>
+        </Link>
+        <GifsContextProvider>
+          <Route
+            path='/'
+            component={Home}
+          />
+          <Route
+            path='/search/:keyword'
+            component={Search}
+          />
+          <Route
+            path='/gif/:id'
+            component={Details}
+          />
+        </GifsContextProvider>
       </section>
     </div>
   )

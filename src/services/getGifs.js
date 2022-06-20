@@ -1,9 +1,9 @@
 
 const apiKey = 'VFLzZ8Zbd4d4X9KuHAyNZIc6IJksudAm'
-const limit = 2
+const limit = 25
 
-export default function getGifs ({ keyword = 'Taylor Swift' } = {}) {
-  const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`
+export default function getGifs ({ keyword } = {}) {
+  const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=r&lang=en`
 
   return fetch(apiURL)
     .then(res => res.json())
