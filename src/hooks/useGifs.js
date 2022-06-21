@@ -1,16 +1,19 @@
 
 import { useState, useEffect, useContext } from 'react'
-import getGifs from '../services/getGifs'
-import GifsContext from '../context/GifsContext'
+import getGifs from 'services/getGifs'
+import GifsContext from 'context/GifsContext'
 
 export function useGifs ({ keyword } = { keyword: null }) {
   const [isloading, setLoading] = useState(false)
+  const [categoryName, setCategoryName] = useState('')
+
   const { gifs, setGifs } = useContext(GifsContext)
 
   useEffect(() => {
     setLoading(true)
     console.log('----')
     const keywordToUse = keyword || window.localStorage.getItem('lastSearch') || 'random'
+    setCategoryName(keywordToUse)
 
     getGifs({ keyword: keywordToUse })
       .then(gifs => {
@@ -22,5 +25,5 @@ export function useGifs ({ keyword } = { keyword: null }) {
       })
   }, [keyword, setGifs])
 
-  return { gifs, isloading }
+  return { categoryName, gifs, isloading }
 }

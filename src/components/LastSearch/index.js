@@ -1,10 +1,11 @@
 import ListOfGifs from '../ListOfGifs'
+import './LastSearch.css'
 
-export default function LastSearch ({ gifs }) {
+export default function LastSearch ({ categoryName, gifs }) {
   return (
-    <div>
-      <h3>Last Search</h3>
-      <ListOfGifs gifs={gifs} />
+    <div className='LastSearch'>
+      <h2>Last Search</h2>
+      <ListOfGifs categoryName={categoryName} gifs={gifs} />
     </div>
   )
 }

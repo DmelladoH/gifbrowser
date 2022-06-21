@@ -1,9 +1,8 @@
-
-import { useContext } from 'react'
-import GifsContext from '../../context/GifsContext'
+import useGifsGlobal from 'hooks/useGifsGlobal'
+import GifDetails from 'components/GifDetails'
 
 export default function Details ({ params }) {
-  const { gifs } = useContext(GifsContext)
+  const gifs = useGifsGlobal()
   const { id } = params
 
   console.log(gifs)
@@ -11,9 +10,10 @@ export default function Details ({ params }) {
   console.log(gif)
 
   return (
-    <>
-      <h2>{gif.title}</h2>
-      <img alt={gif.title} src={gif.url} />
-    </>
+
+    <GifDetails
+      title={gif.title}
+      url={gif.url}
+    />
   )
 }

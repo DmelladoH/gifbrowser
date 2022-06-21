@@ -1,10 +1,10 @@
 import './App.css'
 import { Link, Route } from 'wouter'
 
-import Home from './pages/Home'
-import Search from './pages/Search'
-import Details from './pages/Details'
-import { GifsContextProvider } from './context/GifsContext'
+import Home from 'pages/Home'
+import Search from 'pages/Search'
+import Details from 'pages/Details'
+import { GifsContextProvider } from 'context/GifsContext'
 
 function App () {
   return (

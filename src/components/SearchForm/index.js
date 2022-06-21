@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLocation } from 'wouter'
+import './SearchForm.css'
 
 export default function searchForm () {
   const [keyword, setKeyword] = useState('')
@@ -14,9 +15,10 @@ export default function searchForm () {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='search'>
       <input
         type='text'
+        className='search-input'
         placeholder='Search a gif here...'
         onChange={handleChange}
         value={keyword}

@@ -1,14 +1,22 @@
 :root{
     --result-column: 2;
 }
+
+h3 { 
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+i { 
+    font-size: 40px;
+    color: white;
+    text-align: center;
+}
+
 .ListOfGifs{
     column-count: var(--result-column);
     column-gap: .5em;
-    margin: 60px;
-}
-
-.ListOfGifs i {
-    text-align: center !important;
 }
 
 .ListOfGifs-item{
@@ -31,3 +39,7 @@
         --result-column: 4;
     }
 }
+
+
+
+  
