@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-
+/* eslint-disable no-undef */
 export default function useNearScreen ({ distance = '100px' } = {}) {
   const [isNearScreen, setIsNearScreen] = useState(false)
   const ref = useRef()
