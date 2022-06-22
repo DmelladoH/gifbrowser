@@ -11,7 +11,6 @@ export function useGifs ({ keyword } = { keyword: null }) {
 
   useEffect(() => {
     setLoading(true)
-    console.log('----')
     const keywordToUse = keyword || window.localStorage.getItem('lastSearch') || 'random'
     setCategoryName(keywordToUse)
 

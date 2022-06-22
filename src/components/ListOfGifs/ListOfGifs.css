@@ -28,13 +28,13 @@ i {
     width: 100%;
 }
 
-@media (min-width: 600px){
+@media (min-width: 800px){
     :root{
         --result-column: 3;
     }
 }
 
-@media (min-width: 800px){
+@media (min-width: 900px){
     :root{
         --result-column: 4;
     }

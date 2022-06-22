@@ -1,17 +1,14 @@
 import useGifsGlobal from 'hooks/useGifsGlobal'
-import GifDetails from 'components/GifDetails'
+import GifDetail from 'components/GifDetail'
 
 export default function Details ({ params }) {
   const gifs = useGifsGlobal()
   const { id } = params
 
-  console.log(gifs)
   const gif = gifs.find(gif => gif.id === id)
-  console.log(gif)
 
   return (
-
-    <GifDetails
+    <GifDetail
       title={gif.title}
       url={gif.url}
     />

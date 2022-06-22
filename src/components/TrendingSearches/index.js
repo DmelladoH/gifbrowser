@@ -1,32 +1,39 @@
+/* eslint-disable no-undef */
 import Category from '../Category'
 import useTrends from 'hooks/useTrends'
-import { useState, useEffect } from 'react'
-import IntersectionObserver from 'intersection-observer'
+import { useState, useEffect, useRef } from 'react'
+import './TrendingSearches.css'
 
-export default function TrendingSearches () {
+function TrendingSearches () {
   const { trends } = useTrends()
 
-  return <Category name='Trenging' options={trends} />
+  return <Category name='Trends' options={trends} />
 }
 
-// export default function LazyTrending () {
-//   const [show, setShow] = useState(false)
+export default function LazyTrending () {
+  const [show, setShow] = useState(false)
+  const ref = useRef()
 
-//   //   useEffect(() => {
-//   //     const onChange = (entries) => {
-//   //       const el = entries[0]
-//   //     }
+  useEffect(() => {
+    const onChange = (entries) => {
+      const el = entries[0]
+      console.log(el.isIntersecting)
+      if (el.isIntersecting) {
+        setShow(true)
+        observer.disconnect()
+      }
+    }
 
-//   //     const observer = new IntersectionObserver(onChange, {
-//   //       rootMargin: '100px'
-//   //     })
+    const observer = new IntersectionObserver(onChange, {
+      rootMargin: '200px'
+    })
 
-//   //     observer.observe()
-//   //   })
+    observer.observe(ref.current)
+  })
 
-//   return (
-//     <div id='lazyTrending'>
-//       {show ? <TrendingSearches /> : null}
-//     </div>
-//   )
-// }
+  return (
+    <div ref={ref} className='Trends'>
+      {show ? <TrendingSearches /> : null}
+    </div>
+  )
+}

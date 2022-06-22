@@ -3,7 +3,7 @@ import { Link } from 'wouter'
 export default function Category ({ name, options = [] }) {
   return (
     <div>
-      <h4>{name}</h4>
+      <h2>{name}</h2>
       <ul>
         {
             options.map(singleOption => (
