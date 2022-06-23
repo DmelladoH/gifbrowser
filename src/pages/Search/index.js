@@ -1,19 +1,19 @@
-
-import ListOfGifs from 'components/ListOfGifs'
 import { useGifs } from 'hooks/useGifs'
+import SearchResult from 'components/SearchResult'
 
 export default function Search ({ params }) {
   const { keyword } = params
-  const { categoryName, gifs, isLoading } = useGifs({ keyword })
+  const { categoryName, gifs, isLoading, setPage } = useGifs({ keyword })
 
   return (
     <>
       {
         isLoading
           ? <i>loading...</i>
-          : <ListOfGifs
+          : <SearchResult
               categoryName={categoryName}
               gifs={gifs}
+              setPage={setPage}
             />
       }
     </>
