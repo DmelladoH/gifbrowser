@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 /* eslint-disable no-undef */
-export default function useNearScreen ({ distance = '100px' } = {}) {
+export default function useNearScreen ({ distance = '100px', once = true } = {}) {
   const [isNearScreen, setIsNearScreen] = useState(false)
   const ref = useRef()
 
@@ -9,7 +9,9 @@ export default function useNearScreen ({ distance = '100px' } = {}) {
       const el = entries[0]
       if (el.isIntersecting) {
         setIsNearScreen(true)
-        observer.disconnect()
+        once && observer.disconnect()
+      } else {
+        !once && setIsNearScreen(false)
       }
     }
 
