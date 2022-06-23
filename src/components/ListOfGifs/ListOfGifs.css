@@ -2,10 +2,12 @@
     --result-column: 2;
 }
 
+
 h3 { 
-    font-size: 20px;
+    font-size: 40px;
     color: white;
-    text-align: center;
+    text-align: left;
+    margin: 16px;
 }
 
 i { 
@@ -15,13 +17,15 @@ i {
 }
 
 .ListOfGifs{
-    column-count: var(--result-column);
-    column-gap: .5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 0 3px;
+    min-height: 100vh;  
+    margin: 16px;
+    align-items: center;
 }
 
 .ListOfGifs-item{
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
 
     background-color: #eee;
     display: inline-block;
