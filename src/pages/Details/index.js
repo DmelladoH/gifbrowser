@@ -1,16 +1,25 @@
-import useGifsGlobal from 'hooks/useGifsGlobal'
-import GifDetail from 'components/GifDetail'
+import useSingleGif from 'hooks/useSingleGif'
+import Gif from 'components/Gif'
+import { Redirect } from 'wouter'
+import { Helmet } from 'react-helmet'
 
 export default function Details ({ params }) {
-  const gifs = useGifsGlobal()
-  const { id } = params
+  const { gif, isError } = useSingleGif({ id: params.id })
 
-  const gif = gifs.find(gif => gif.id === id)
+  console.log(gif)
+
+  if (isError) return <Redirect to='/404' />
+  if (!gif) return null
 
   return (
-    <GifDetail
-      title={gif.title}
-      url={gif.url}
-    />
+
+    <>
+      <Helmet>
+        <title>{gif.title} | Gifbrowser</title>
+      </Helmet>
+      <h2>{gif.title}</h2>
+      <Gif {...gif} />
+    </>
+
   )
 }
