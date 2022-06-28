@@ -1,13 +1,18 @@
 import { useState } from 'react'
+import { useLocation } from 'wouter'
 
 import './SearchForm.css'
 
-export default function searchForm ({ onSubmit }) {
+export default function searchForm () {
   const [keyword, setKeyword] = useState('')
+  const [path, pushLocation] = useLocation()
+  const onSubmitSearchForm = (keyword) => {
+
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    onSubmit(keyword)
+    pushLocation(`/search/${keyword}`)
   }
 
   const handleChange = (event) => {

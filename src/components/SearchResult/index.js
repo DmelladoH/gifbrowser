@@ -2,6 +2,7 @@ import { useEffect, useCallback } from 'react'
 import ListOfGifs from 'components/ListOfGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
+import SearchForm from 'components/SearchForm'
 
 export default function SearchResult ({ categoryName, gifs, setPage }) {
   const { ref, isNearScreen } = useNearScreen({ once: false })
@@ -22,6 +23,9 @@ export default function SearchResult ({ categoryName, gifs, setPage }) {
 
   return (
     <>
+      <header>
+        <SearchForm />
+      </header>
       <ListOfGifs
         categoryName={categoryName}
         gifs={gifs}
