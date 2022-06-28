@@ -7,7 +7,7 @@ const fromApiResponseToGif = apiResponse => {
   return { id, title, url }
 }
 
-export default function getGif ({ id }) {
+export default function getSingleGif ({ id }) {
   const URL = `${API_URL}/gifs/${id}?api_key=${API_KEY}`
   return fetch(URL)
     .then(res => res.json())

@@ -3,19 +3,23 @@ import { useLocation } from 'wouter'
 
 import './SearchForm.css'
 
+const RATING = ['g', 'pg', 'pg-13', 'r']
+
 export default function searchForm () {
   const [keyword, setKeyword] = useState('')
+  const [rating, setRating] = useState('g')
   const [path, pushLocation] = useLocation()
-  const onSubmitSearchForm = (keyword) => {
-
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    pushLocation(`/search/${keyword}`)
+    pushLocation(`/search/${keyword}/${rating}`)
   }
 
-  const handleChange = (event) => {
+  const handleRatingChange = (event) => {
+    setRating(event.target.value)
+  }
+
+  const handleSearchChange = (event) => {
     setKeyword(event.target.value)
   }
 
@@ -25,9 +29,13 @@ export default function searchForm () {
         type='text'
         className='search-input'
         placeholder='Search a gif here...'
-        onChange={handleChange}
+        onChange={handleSearchChange}
         value={keyword}
       />
+      <select onChange={handleRatingChange}>
+        {RATING.map(rating =>
+          <option key={rating}>{rating}</option>)}
+      </select>
       <button>search</button>
     </form>
   )

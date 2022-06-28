@@ -4,7 +4,7 @@ import GifsContext from 'context/GifsContext'
 
 const INITIAL_PAGE = 0
 
-export function useGifs ({ keyword } = { keyword: null }) {
+export function useGifs ({ keyword, rating } = { keyword: null, rating: 'g' }) {
   const [isloading, setLoading] = useState(false)
   const [isNextPageLoading, setNextPageLoading] = useState(false)
 
@@ -18,7 +18,7 @@ export function useGifs ({ keyword } = { keyword: null }) {
     const keywordToUse = keyword || window.localStorage.getItem('lastSearch') || 'random'
     setCategoryName(keywordToUse)
 
-    getGifs({ keyword: keywordToUse })
+    getGifs({ keyword: keywordToUse, rating })
       .then(gifs => {
         setGifs(gifs)
         if (keyword) {
@@ -26,7 +26,7 @@ export function useGifs ({ keyword } = { keyword: null }) {
         }
         setLoading(false)
       })
-  }, [keyword, setGifs])
+  }, [keyword, setGifs, rating])
 
   useEffect(() => {
     if (page === INITIAL_PAGE) return

@@ -6,8 +6,6 @@ import { Helmet } from 'react-helmet'
 export default function Details ({ params }) {
   const { gif, isError } = useSingleGif({ id: params.id })
 
-  console.log(gif)
-
   if (isError) return <Redirect to='/404' />
   if (!gif) return null
 
