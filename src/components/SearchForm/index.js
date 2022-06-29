@@ -1,30 +1,40 @@
-import { useState } from 'react'
 import { useLocation } from 'wouter'
+import useForm from './hook'
 
 import './SearchForm.css'
 
 const RATING = ['g', 'pg', 'pg-13', 'r']
+const LANG = ['en', 'es', 'fr', 'it']
 
-export default function searchForm () {
-  const [keyword, setKeyword] = useState('')
-  const [rating, setRating] = useState('g')
-  const [path, pushLocation] = useLocation()
+export default function searchForm ({ initialKeywords = '', initialRating = '', initialLang = '' }) {
+  const { keyword, rating, lang, updateKeyword, updateRating, updateLang } = useForm(
+    initialKeywords, initialRating, initialLang)
+
+  const [_, pushLocation] = useLocation()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    pushLocation(`/search/${keyword}/${rating}`)
+    pushLocation(`/search/${keyword}/${lang}/${rating}`)
   }
 
   const handleRatingChange = (event) => {
-    setRating(event.target.value)
+    updateRating(event.target.value)
   }
 
   const handleSearchChange = (event) => {
-    setKeyword(event.target.value)
+    updateKeyword(event.target.value)
+  }
+
+  const handleLangChange = (event) => {
+    updateLang(event.target.value)
   }
 
   return (
     <form onSubmit={handleSubmit} className='search'>
+      <select onChange={handleLangChange}>
+        {LANG.map(lang =>
+          <option key={lang}>{lang}</option>)}
+      </select>
       <input
         type='text'
         className='search-input'

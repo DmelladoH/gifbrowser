@@ -21,7 +21,7 @@ function App () {
               component={Home}
             />
             <Route
-              path='/search/:keyword/:rating?'
+              path='/search/:keyword/:lang?/:rating?'
               component={Search}
             />
             <Route

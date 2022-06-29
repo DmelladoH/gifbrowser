@@ -4,15 +4,8 @@ import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 import SearchForm from 'components/SearchForm'
 
-export default function SearchResult ({ categoryName, gifs, setPage }) {
+export default function SearchResult ({ categoryName, gifs, setPage, keyword, rating }) {
   const { ref, isNearScreen } = useNearScreen({ once: false })
-
-  const handleNextPage = () => {
-    // setPage(prevPage => prevPage + 1)
-    console.log('nextPage')
-  }
-
-  console.log(isNearScreen)
 
   const deboundsHandleNextPage = useCallback(debounce(
     () => setPage(prevPage => prevPage + 1), 50), [])
@@ -24,7 +17,10 @@ export default function SearchResult ({ categoryName, gifs, setPage }) {
   return (
     <>
       <header>
-        <SearchForm />
+        <SearchForm
+          initialKeywords={keyword}
+          initialRating={rating}
+        />
       </header>
       <ListOfGifs
         categoryName={categoryName}
