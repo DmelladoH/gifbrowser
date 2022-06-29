@@ -10,6 +10,7 @@ export default function searchForm ({ initialKeywords = '', initialRating = '', 
   const { keyword, rating, lang, updateKeyword, updateRating, updateLang } = useForm(
     initialKeywords, initialRating, initialLang)
 
+  // eslint-disable-next-line no-unused-vars
   const [_, pushLocation] = useLocation()
 
   const handleSubmit = (event) => {
