@@ -2,9 +2,8 @@ import { useEffect, useCallback } from 'react'
 import ListOfGifs from 'components/ListOfGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
-import SearchForm from 'components/SearchForm'
 
-export default function SearchResult ({ categoryName, gifs, setPage, keyword, rating }) {
+export default function SearchResult ({ categoryName, gifs, setPage }) {
   const { ref, isNearScreen } = useNearScreen({ once: false })
 
   const deboundsHandleNextPage = useCallback(debounce(
@@ -16,12 +15,6 @@ export default function SearchResult ({ categoryName, gifs, setPage, keyword, ra
 
   return (
     <>
-      <header>
-        <SearchForm
-          initialKeywords={keyword}
-          initialRating={rating}
-        />
-      </header>
       <ListOfGifs
         categoryName={categoryName}
         gifs={gifs}

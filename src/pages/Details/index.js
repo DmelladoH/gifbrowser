@@ -15,7 +15,7 @@ export default function Details ({ params }) {
       <Helmet>
         <title>{gif.title} | Gifbrowser</title>
       </Helmet>
-      <h2>{gif.title}</h2>
+      <h3 className='App-title'>{gif.title}</h3>
       <Gif {...gif} />
     </>
 

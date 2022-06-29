@@ -31,7 +31,7 @@ export default function searchForm ({ initialKeywords = '', initialRating = '', 
 
   return (
     <form onSubmit={handleSubmit} className='search'>
-      <select onChange={handleLangChange}>
+      <select onChange={handleLangChange} className='langSelect'>
         {LANG.map(lang =>
           <option key={lang}>{lang}</option>)}
       </select>

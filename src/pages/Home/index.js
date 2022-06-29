@@ -8,14 +8,20 @@ export default function Home () {
   return (
     <>
       <Helmet>
-        <title>Gifbrowser</title>
+        <title>Home | Gifbrowser</title>
       </Helmet>
-      <header>
+      <header className='o-header'>
         <SearchForm />
       </header>
-      <div>
-        <LastSearch />
-        <LazyTrending />
+      <div className='App-wrapper'>
+        <div className='App-main'>
+          <div className='App-results'>
+            <LastSearch />
+          </div>
+          <div className='App-category'>
+            <LazyTrending />
+          </div>
+        </div>
       </div>
     </>
   )

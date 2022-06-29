@@ -21,7 +21,7 @@ export default function ListOfGifs ({ categoryName, gifs }) {
 function ListOfGifsDisplay ({ categoryName, gifs }) {
   return (
     <div>
-      <h3>{decodeURI(categoryName)}</h3>
+      <h3 className='App-title'>{decodeURI(categoryName)}</h3>
       <div className='ListOfGifs'>
         {
           gifs.map(singleGift =>

@@ -1,11 +1,12 @@
 import './App.css'
 import { Link, Route, Switch } from 'wouter'
 
+import { GifsContextProvider } from 'context/GifsContext'
+
 import Home from 'pages/Home'
 import Search from 'pages/Search'
 import Details from 'pages/Details'
 import Error from 'pages/Error'
-import { GifsContextProvider } from 'context/GifsContext'
 
 function App () {
   return (
@@ -29,7 +30,7 @@ function App () {
               component={Details}
             />
             <Route
-              path='/404'
+              path='/:rest*'
               component={Error}
             />
           </Switch>

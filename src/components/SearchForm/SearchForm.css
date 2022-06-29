@@ -1,4 +1,4 @@
-.search {
+/* .search {
     text-align: center;
     position: relative;
 } 
@@ -10,9 +10,33 @@
     border: none;
 }
 
+
+ */
+
+ .langSelect {
+    height: 34px;
+    color: #ffffff;
+    background: var(--brand-color_3)
+ }
+
 .search button {
     height: 34px;
     color: #ffffff;
-    background: #c57af0;
+    background: var(--brand-color_3)
 }
 
+.search {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: var(--theme-body-bg);
+    margin: 0 auto 30px;
+  }
+
+  .search-input {
+    font-size: 16px;
+    border: none;
+    width: 30%;
+    padding: 4px 16px;
+  }

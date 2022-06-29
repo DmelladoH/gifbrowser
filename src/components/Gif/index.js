@@ -4,10 +4,13 @@ import './Gif.css'
 
 function Gif ({ id, title, url }) {
   return (
-    <Link href={`/gif/${id}`} className='Gif'>
-      <h4>{title}</h4>
-      <img alt={title} src={url} />
-    </Link>
+    <div className='Gif'>
+      <Link href={`/gif/${id}`} className='Gif-link'>
+        <h4>{title}</h4>
+        <img alt={title} src={url} />
+      </Link>
+    </div>
+
   )
 }
 
