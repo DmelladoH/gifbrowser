@@ -31,23 +31,25 @@ export default function searchForm ({ initialKeywords = '', initialRating = '', 
   }
 
   return (
-    <form onSubmit={handleSubmit} className='search'>
-      <select onChange={handleLangChange} className='langSelect'>
-        {LANG.map(lang =>
-          <option key={lang}>{lang}</option>)}
-      </select>
-      <input
-        type='text'
-        className='search-input'
-        placeholder='Search a gif here...'
-        onChange={handleSearchChange}
-        value={keyword}
-      />
-      <select onChange={handleRatingChange}>
-        {RATING.map(rating =>
-          <option key={rating}>{rating}</option>)}
-      </select>
-      <button>search</button>
-    </form>
+    <div className='SearchBar'>
+      <form onSubmit={handleSubmit} className='searchForm'>
+        <select onChange={handleLangChange} className='langSelect'>
+          {LANG.map(lang =>
+            <option key={lang}>{lang}</option>)}
+        </select>
+        <input
+          type='text'
+          className='search-input'
+          placeholder='Search a gif here...'
+          onChange={handleSearchChange}
+          value={keyword}
+        />
+        <select onChange={handleRatingChange}>
+          {RATING.map(rating =>
+            <option key={rating}>{rating}</option>)}
+        </select>
+        <button>search</button>
+      </form>
+    </div>
   )
 }
