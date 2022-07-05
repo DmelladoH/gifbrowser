@@ -1,6 +1,6 @@
 import { useGifs } from 'hooks/useGifs'
 
-import ListOfGifs from '../ListOfGifs'
+import ListOfGifs from 'components/ListOfGifs'
 import './LastSearch.css'
 
 export default function LastSearch () {

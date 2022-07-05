@@ -1,0 +1,6 @@
+.GifContainer{
+    max-width: 45rem;
+    max-height: 70rem;
+    margin: auto;
+    position: flex;
+}
