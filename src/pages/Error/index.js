@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet'
-import SearchForm from 'components/SearchForm'
 
 export default function ErrorPage () {
   return (
