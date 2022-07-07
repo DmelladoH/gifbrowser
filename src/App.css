@@ -69,3 +69,14 @@
 .btn:hover {
   background-color: var(--brand-color_6);
 }
+
+.Error {
+  margin-top: 1.9rem;
+  font-size: 70px;
+  text-align: center;
+}
+
+.ErrorDescription {
+  font-size: 30px;
+  text-align: center;
+}

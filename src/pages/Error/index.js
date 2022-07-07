@@ -8,8 +8,12 @@ export default function ErrorPage () {
 
       <div className='App-wrapper'>
         <div>
-          <span>Error 404</span>
-          <span>Gif not found</span>
+          <div className='Error'>
+            <span>Error 404</span>
+          </div>
+          <div className='ErrorDescription'>
+            <span>Gif not found</span>
+          </div>
         </div>
       </div>
 

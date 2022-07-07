@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 
 import { useGifs } from 'hooks/useGifs'
 import InfinityScrollGifs from 'components/InfinityScrollGifs'
-import SearchForm from 'components/SearchForm'
 
 export default function Search ({ params }) {
   const { keyword, rating, lang } = params
@@ -18,12 +17,6 @@ export default function Search ({ params }) {
             <Helmet>
               <title> Search for {keyword}</title>
             </Helmet>
-            {/* <header className='o-header'>
-              <SearchForm
-                initialKeywords={keyword}
-                initialRating={rating}
-              />
-            </header> */}
             <div className='App-wrapper'>
               <InfinityScrollGifs
                 categoryName={categoryName}
