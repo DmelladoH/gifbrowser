@@ -8,17 +8,20 @@ export default function useSingleGif ({ id }) {
 
   const [gif, setGif] = useState(gifFromCache)
   const [isError, setIsError] = useState(false)
-  useEffect(() => {
-    if (!gif) {
-      getSingleGif({ id })
-        .then(gif => {
-          setGif(gif)
-        }).catch(err => {
-          setIsError(true)
-          console.error(err)
-        })
-    }
-  }, [gif, id])
+  const [isLoading, setLoading] = useState(false)
 
-  return { gif, isError }
+  useEffect(() => {
+    setLoading(true)
+    getSingleGif({ id })
+      .then(gif => {
+        setGif(gif)
+        setLoading(false)
+      }).catch(err => {
+        setIsError(true)
+        setLoading(false)
+        console.error(err)
+      })
+  }, [id])
+
+  return { gif, isError, isLoading }
 }

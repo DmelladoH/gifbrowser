@@ -32,7 +32,7 @@ export function useGifs ({ keyword, rating, lang } = { keyword: null, rating: 'g
     if (page === INITIAL_PAGE) return
 
     setNextPageLoading(true)
-    getGifs({ keyword, page })
+    getGifs({ keyword: categoryName, page })
       .then(nextGifs => {
         setGifs(prevGifs => prevGifs.concat(nextGifs))
         setNextPageLoading(false)
