@@ -2,6 +2,8 @@ import './App.css'
 import { Link, Route, Switch } from 'wouter'
 
 import { GifsContextProvider } from 'context/GifsContext'
+import ScrollToTop from 'utils/ScrollToTop'
+import SearchForm from 'components/SearchForm'
 
 import Home from 'pages/Home'
 import Search from 'pages/Search'
@@ -15,25 +17,30 @@ function App () {
         <Link to='/'>
           <h1>Gifbrowser</h1>
         </Link>
+        <header className='o-header'>
+          <SearchForm />
+        </header>
         <GifsContextProvider>
-          <Switch>
-            <Route
-              path='/'
-              component={Home}
-            />
-            <Route
-              path='/search/:keyword/:lang?/:rating?'
-              component={Search}
-            />
-            <Route
-              path='/gif/:id'
-              component={Details}
-            />
-            <Route
-              path='/:rest*'
-              component={Error}
-            />
-          </Switch>
+          <ScrollToTop>
+            <Switch>
+              <Route
+                path='/'
+                component={Home}
+              />
+              <Route
+                path='/search/:keyword/:lang?/:rating?'
+                component={Search}
+              />
+              <Route
+                path='/gif/:id'
+                component={Details}
+              />
+              <Route
+                path='/:rest*'
+                component={Error}
+              />
+            </Switch>
+          </ScrollToTop>
         </GifsContextProvider>
       </section>
     </div>
