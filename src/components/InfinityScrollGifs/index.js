@@ -3,7 +3,7 @@ import ListOfGifs from 'components/ListOfGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 
-export default function SearchResult ({ categoryName, gifs, setPage }) {
+export default function InfinityScrollGifs ({ categoryName, gifs, setPage }) {
   const { ref, isNearScreen } = useNearScreen({ once: false })
 
   const deboundsHandleNextPage = useCallback(debounce(
@@ -20,7 +20,6 @@ export default function SearchResult ({ categoryName, gifs, setPage }) {
         gifs={gifs}
       />
       <div id='visor' ref={ref} />
-
     </>
   )
 }

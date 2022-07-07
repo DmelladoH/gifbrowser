@@ -4,7 +4,7 @@ import GiftDetail from 'components/GifDeatil'
 import { Redirect } from 'wouter'
 import { Helmet } from 'react-helmet'
 import { useGifs } from 'hooks/useGifs'
-import InfinitiveScrollGifs from 'components/InfinitiveScrollGifs'
+import InfinityScrollGifs from 'components/InfinityScrollGifs'
 
 export default function Details ({ params }) {
   const { categoryName, gifs, setPage } = useGifs({ })
@@ -28,7 +28,7 @@ export default function Details ({ params }) {
             : <GiftDetail gif={gif} />
         }
 
-        <InfinitiveScrollGifs
+        <InfinityScrollGifs
           categoryName={categoryName}
           gifs={gifs}
           setPage={setPage}

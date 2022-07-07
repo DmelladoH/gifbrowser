@@ -2,7 +2,7 @@
 import { Helmet } from 'react-helmet'
 
 import { useGifs } from 'hooks/useGifs'
-import InfinitiveScrollGifs from 'components/InfinitiveScrollGifs'
+import InfinityScrollGifs from 'components/InfinityScrollGifs'
 import SearchForm from 'components/SearchForm'
 
 export default function Search ({ params }) {
@@ -25,7 +25,7 @@ export default function Search ({ params }) {
               />
             </header> */}
             <div className='App-wrapper'>
-              <InfinitiveScrollGifs
+              <InfinityScrollGifs
                 categoryName={categoryName}
                 gifs={gifs}
                 setPage={setPage}
